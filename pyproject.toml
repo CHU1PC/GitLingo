@@ -1,0 +1,17 @@
+[project]
+name = "gitlingo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "langchain>=0.3.27",
+    "langchain-google-genai>=2.1.12",
+    "requests>=2.32.5",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.3.0",
+    "ruff>=0.13.3",
+]
