@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.12.5
+    rev: v0.13.3
     hooks:
       # Run the linter.
       - id: ruff-check
@@ -14,12 +14,14 @@ repos:
       # Run the pyrefly static type checker.
       - id: pyrefly-check
         name: Run the Pyrefly Type Checker
-        language: system
+        language: python
         entry: uv run pyrefly check
         types: [python]
+        additional_dependencies:
+          - pyrefly==0.29.2
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.34.0
+    rev: v1
     hooks:
       # Check for typos in the codebase.
       - id: typos
@@ -27,7 +29,7 @@ repos:
         args: []
 
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.24.2
+    rev: v8.28.0
     hooks:
       # Check for secrets in the git history.
       - id: gitleaks
