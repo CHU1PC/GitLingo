@@ -1,0 +1,34 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.5
+    hooks:
+      # Run the linter.
+      - id: ruff-check
+        name: Run the Ruff Linter
+      # Run the formatter.
+      - id: ruff-format
+        name: Run the Ruff Formatter
+
+  - repo: local
+    hooks:
+      # Run the pyrefly static type checker.
+      - id: pyrefly-check
+        name: Run the Pyrefly Type Checker
+        language: system
+        entry: uv run pyrefly check
+        types: [python]
+
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.34.0
+    hooks:
+      # Check for typos in the codebase.
+      - id: typos
+        name: Check for Typos
+        args: []
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.24.2
+    hooks:
+      # Check for secrets in the git history.
+      - id: gitleaks
+        name: Check for Secrets
